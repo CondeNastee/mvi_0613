@@ -39,7 +39,7 @@
       "Ol4NQfmcovs",
       "Q-GGKsQB1e0",
       "nFabHBUlg2k"
-];
+                    ];
 
 // Get a random video ID out of the array 'clips' and store it in the variable 'nowPlaying'
 var nowPlaying = clips[Math.floor(Math.random() * clips.length)];
@@ -71,13 +71,24 @@ var nowPlaying = clips[Math.floor(Math.random() * clips.length)];
       var done = false;
       function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
+          setTimeout(stopVideo, 6130);
           done = true;
+        } else if (done) {
+          player.loadVideoById(clips[Math.floor(Math.random() * clips.length)]);
+          done = false;
+          player.playVideo();
         }
       }
+
       function stopVideo() {
         player.stopVideo();
       }
+
+      function switchVideo(){
+        player.videoId = clips[Math.floor(Math.random() * clips.length)];
+        event.target.playVideo();
+      } 
+
     </script>
   </body>
 </html>
