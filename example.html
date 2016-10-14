@@ -1,67 +1,84 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <title>mvi_613</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Liam's Infinity TV">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="mvi.css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+    <style type="text/css"></style>
+</head>
+
 <body>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
+    <div id="box">
+        <h1>mvi.613</h1>
+        <p>by Liam O'Connor</p>
+        <div id="player"></div>
+    </div>
+    </div>
     <script>
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
-
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-// 'clips' is an array containing all of the videos we want to choose from
-      var clips = [
-      "2pEbZLzlq7I&spfreload=10",
-      "GhmdjoDFQCs",
-      "V57r8CJH2LE",
-      "i7HXMelo3ms",
-      "rKLtb7i4Q_w",
-      "sdIG3TDR2ZY",
-      "UEVHazGgLP0",
-      "jSn_5pQ1V-A",
-      "5ndEz2J9dBo",
-      "UEVHazGgLP0",
-      "ElUFSerxNr4",
-      "IaB6p-hbhME",
-      "Ji9Gi73_22s",
-      "oI3tRi3Mmiw",
-      "DvcXYEv28vc",
-      "HtxqTqtiMso",
-      "TKbpqJKn8-c",
-      "4ZDc0fCWPXU",
-      "o8XTQugbKg8",
-      "2m8y68Yvz88",
-      "3oA-3B0vLkQ",
-      "o07n7EXF4ic",
-      "Ol4NQfmcovs",
-      "Q-GGKsQB1e0",
-      "nFabHBUlg2k"
-                    ];
+    // 'clips' is an array containing all of the videos we want to choose from
+    var clips = [
+        "2pEbZLzlq7I&spfreload=10",
+        "GhmdjoDFQCs",
+        "V57r8CJH2LE",
+        "i7HXMelo3ms",
+        "rKLtb7i4Q_w",
+        "sdIG3TDR2ZY",
+        "UEVHazGgLP0",
+        "jSn_5pQ1V-A",
+        "5ndEz2J9dBo",
+        "UEVHazGgLP0",
+        "ElUFSerxNr4",
+        "IaB6p-hbhME",
+        "Ji9Gi73_22s",
+        "oI3tRi3Mmiw",
+        "DvcXYEv28vc",
+        "HtxqTqtiMso",
+        "TKbpqJKn8-c",
+        "4ZDc0fCWPXU",
+        "o8XTQugbKg8",
+        "2m8y68Yvz88",
+        "3oA-3B0vLkQ",
+        "o07n7EXF4ic",
+        "Ol4NQfmcovs",
+        "Q-GGKsQB1e0",
+        "nFabHBUlg2k"
+    ];
 
     // Get a random video ID out of the array 'clips' and store it in the variable 'nowPlaying'
     var nowPlaying = clips[Math.floor(Math.random() * clips.length)];
     //amelia's weird shit
-/*    function onYouTubePlayerAPIReady() {
-        player = new YT.Player('player', {
-            height: '390',
-            width: '640',
-            playerVars: {
-                listType: 'search',
-                list: 'MVI_613'
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
-    }*/
+    /*    function onYouTubePlayerAPIReady() {
+            player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                playerVars: {
+                    listType: 'search',
+                    list: 'MVI_613' + #t=3m05s
+
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }*/
 
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
     var player;
+
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
             height: '390',
@@ -86,14 +103,14 @@
 
     function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6130);
-          done = true;
+            setTimeout(stopVideo, 6130);
+            done = true;
         } else if (done) {
-          player.loadVideoById(clips[Math.floor(Math.random() * clips.length)]);
-          done = false;
-          player.playVideo();
+            player.loadVideoById(clips[Math.floor(Math.random() * clips.length)]);
+            done = false;
+            player.playVideo();
         }
-      }
+    }
 
     function stopVideo() {
         player.stopVideo();
