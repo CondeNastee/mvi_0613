@@ -17,7 +17,7 @@
     <div id="box">
         <h1>mvi.613</h1>
         <p>by Liam O'Connor</p>
-        <div id="player"></div>
+        <div id="player" sy></div>
     </div>
     </div>
     <script>
@@ -81,8 +81,9 @@
 
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-            height: '390',
+            height: '360',
             width: '640',
+            playervars: {'autoplay': 1, 'controls': 0},
             videoId: nowPlaying,
             events: {
                 'onReady': onPlayerReady,

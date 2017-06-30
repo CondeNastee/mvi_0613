@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>MVI 0613</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Liam's Infinity TV">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <style type="text/css"></style>
+    <link rel="stylesheet" type="text/css" href="mvi.css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body>
+    <div id="box">
+        <h1>mvi.613</h1>
+        <p>by Liam O'Connor</p>
+        <div id="player" style="display:none;"></div>
+    </div>
+
+    <script src="ready.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+    </body>
+</html>
